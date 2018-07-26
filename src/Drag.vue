@@ -3,7 +3,7 @@
 		:draggable="draggable"
 		@drag="emitEvent(events.drag, $event)"
 		@dragstart="emitEvent(events.dragstart, $event)"
-		@dragenter="emitEvent(events.dragenter, $event)"
+		@dragenter.native.prevent="emitEvent(events.dragenter, $event)"
 		@dragleave="emitEvent(events.dragleave, $event)"
 		@dragend="emitEvent(events.dragend, $event)"
 	>
@@ -86,9 +86,6 @@
 
 					// Indicate that we're dragging.
 					this.dragging = true;
-				} else if (name === events.dragenter) {
-					// Prevent Default so Polyfills will work for mobile
-					event.preventDefault();
 				}
 
 				// At last, emit the event.
