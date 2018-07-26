@@ -86,6 +86,9 @@
 
 					// Indicate that we're dragging.
 					this.dragging = true;
+				} else if (name === events.dragenter) {
+					// Prevent Default so Polyfills will work for mobile
+					event.preventDefault();
 				}
 
 				// At last, emit the event.
